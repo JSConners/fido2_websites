@@ -13,11 +13,13 @@ export const useAuthStore = defineStore({
   persist: true,
   getters: {},
   actions: {
-    testAction() {
-        this.test = !this.test;
-      },
       // Initialize Keycloak OAuth
       async initOauth(keycloak, clearData = true) {
+        if(clearData) { await this.clearUserData(); }
+
+        this.authenticated = false;
+      },
+      async loginOauth(keycloak, clearData = true) {
         if(clearData) { await this.clearUserData(); }
   
         this.authenticated = keycloak.authenticated;
