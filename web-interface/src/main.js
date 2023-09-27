@@ -1,14 +1,24 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import KeyCloakService from './plugins/fido2'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+import App from './App.vue';
+import router from './router';
+import AuthStorePlugin from './plugins/authStore';
+import keycloakService from '@/services/keycloak';
 
-const app = createApp(App)
-app.use(router)
+const pinia = createPinia();
+
+// Use persisted state with Pinia so our store data will persist even after page refresh
+pinia.use(piniaPluginPersistedstate);
 
 const renderApp = () => {
-  createApp(App).mount("#app");
-};
-KeyCloakService.CallLogin(renderApp);
+  const app = createApp(App);
+  app.use(AuthStorePlugin, { pinia });
+  app.use(pinia);
+  app.use(router);
+  app.mount('#app');
+}
+keycloakService.CallInit(renderApp);
+// renderApp();

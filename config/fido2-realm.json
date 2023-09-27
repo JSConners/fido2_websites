@@ -29,7 +29,7 @@
   "sslRequired" : "external",
   "registrationAllowed" : true,
   "registrationEmailAsUsername" : false,
-  "rememberMe" : false,
+  "rememberMe" : true,
   "verifyEmail" : false,
   "loginWithEmailAllowed" : true,
   "duplicateEmailsAllowed" : false,
@@ -351,7 +351,7 @@
   "otpPolicyLookAheadWindow" : 1,
   "otpPolicyPeriod" : 30,
   "otpPolicyCodeReusable" : false,
-  "otpSupportedApplications" : [ "totpAppMicrosoftAuthenticatorName", "totpAppFreeOTPName", "totpAppGoogleName" ],
+  "otpSupportedApplications" : [ "totpAppGoogleName", "totpAppMicrosoftAuthenticatorName", "totpAppFreeOTPName" ],
   "webAuthnPolicyRpEntityName" : "keycloak",
   "webAuthnPolicySignatureAlgorithms" : [ "ES256" ],
   "webAuthnPolicyRpId" : "",
@@ -373,91 +373,22 @@
   "webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister" : false,
   "webAuthnPolicyPasswordlessAcceptableAaguids" : [ ],
   "users" : [ {
-    "id" : "00cf858f-ad34-40d4-881f-05fa396e5f87",
-    "createdTimestamp" : 1693950354245,
-    "username" : "ghostshell",
+    "id" : "8f5a90b6-1f9e-4a8c-bbbb-0cccd722a214",
+    "createdTimestamp" : 1695779464187,
+    "username" : "jconners0988@gmail.com",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : false,
-    "firstName" : "Ghost",
-    "lastName" : "Shell",
+    "firstName" : "James",
+    "lastName" : "Conners",
     "email" : "jconners0988@gmail.com",
     "credentials" : [ {
-      "id" : "d1980dc5-cedd-46e3-ab4f-33c20f5c6f09",
-      "type" : "webauthn",
-      "userLabel" : "keycloak test",
-      "createdDate" : 1693950372884,
-      "secretData" : "{}",
-      "credentialData" : "{\"aaguid\":\"00000000-0000-0000-0000-000000000000\",\"credentialId\":\"kXuzFHyPU1BbNA5mZhI/UZ7br1FTQeiOxarhqITVflSi6UVVa4ArBOclkOp4HanAiXoqCc6lk6U7CRdC2GAtrA==\",\"counter\":1,\"credentialPublicKey\":\"pQECAyYgASFYIMOMOUfaxTSqumI3L4_G72-LhN8Onv-TBm5YnR9Sz-oJIlggEs8wHE2NcqFBLhGqKPGMzvvLSb4H_j4aAo2kQ0l6Q5Q\",\"attestationStatementFormat\":\"none\",\"transports\":[]}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fido2" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "3e6c1de3-d7e2-412f-a7ec-bbb284aa0e95",
-    "createdTimestamp" : 1693950532502,
-    "username" : "vasuki",
-    "enabled" : true,
-    "totp" : false,
-    "emailVerified" : false,
-    "firstName" : "James",
-    "lastName" : "Conners",
-    "email" : "vasuki",
-    "credentials" : [ {
-      "id" : "29984c79-d6fe-4641-9ab6-63b39fb3feb3",
-      "type" : "webauthn",
-      "userLabel" : "WebAuthn Authenticator (Default Label)",
-      "createdDate" : 1693950539964,
-      "secretData" : "{}",
-      "credentialData" : "{\"aaguid\":\"00000000-0000-0000-0000-000000000000\",\"credentialId\":\"0EnDWJ9pSlvgVDHvQPlUXyIxbATfBJTTqY7FLHelyEc=\",\"counter\":0,\"credentialPublicKey\":\"pQECAyYgASFYIEBFeUXXP1I9WcCzj1O53mw1GHmFtE_HQ6ac7eR7hWLfIlgg5pJsfccot1CN04I6Xhs2k734P2KtmwCyee8mDX7raKc\",\"attestationStatementFormat\":\"none\",\"transports\":[]}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fido2" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "bfa2edd7-d879-408a-9199-a0fef61dd218",
-    "createdTimestamp" : 1693950570570,
-    "username" : "vasuki2",
-    "enabled" : true,
-    "totp" : false,
-    "emailVerified" : false,
-    "firstName" : "James",
-    "lastName" : "Conners",
-    "email" : "jc957@byu.edu",
-    "credentials" : [ {
-      "id" : "3c4fc148-d5b5-4c65-96a3-13c55d3ce302",
-      "type" : "webauthn",
-      "userLabel" : "WebAuthn Authenticator (Default Label)",
-      "createdDate" : 1693950576445,
-      "secretData" : "{}",
-      "credentialData" : "{\"aaguid\":\"00000000-0000-0000-0000-000000000000\",\"credentialId\":\"CxKqfDzlGb8J/n3ZrfIponRZlav6TRMZxIn5KgXJHkE=\",\"counter\":0,\"credentialPublicKey\":\"pQECAyYgASFYIO_nZz2DnxIDyEUX6_vfO_3HXpAYa_jfLCAsDEt5-BCHIlggZOyT9GUP2JP1CK9I8W4WVvG344pPqqwCNsXwNdS4dAM\",\"attestationStatementFormat\":\"none\",\"transports\":[]}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fido2" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "c98b6673-feda-44e9-b0fe-2011a796e4f3",
-    "createdTimestamp" : 1693950998151,
-    "username" : "vasuki3",
-    "enabled" : true,
-    "totp" : false,
-    "emailVerified" : false,
-    "firstName" : "James",
-    "lastName" : "Conners",
-    "email" : "vasuki@gmail.com",
-    "credentials" : [ {
-      "id" : "f4d7b3de-535e-4eaf-9b72-cbf6ec20e94f",
+      "id" : "96252837-ef5b-4bf8-86c2-ac221c95e257",
       "type" : "webauthn-passwordless",
       "userLabel" : "WebAuthn Authenticator (Default Label)",
-      "createdDate" : 1693951012594,
+      "createdDate" : 1695779482831,
       "secretData" : "{}",
-      "credentialData" : "{\"aaguid\":\"00000000-0000-0000-0000-000000000000\",\"credentialId\":\"/tSoKQvlbVcUtihv69F9rM5rgqqEUvKNlt8hOaqGqd3GkPoOfaEyW7dBka394jPNH7qEjhwm5JAEEW0Cmz1zJw==\",\"counter\":7,\"credentialPublicKey\":\"pQECAyYgASFYIF7Li-fD8BbOGXfRLXreaU-FmIPa_ehnaDFsApM6v01fIlgguqr2TeyMZQBq-iJL-L3BXZApQ0Mj6g-HQXsLF5CWavA\",\"attestationStatementFormat\":\"none\",\"transports\":[]}"
+      "credentialData" : "{\"aaguid\":\"00000000-0000-0000-0000-000000000000\",\"credentialId\":\"pQAGF26pu9o/O46CnfeX0BGEwozVh+ulDN2gs9ArWP4WegGnMAZxcRZuiD+aA1upRZivToqIOtA+0cpGJN10ZQ==\",\"counter\":7,\"credentialPublicKey\":\"pQECAyYgASFYICN2d6fYfnKHaLw-yl-dnGWGmZEUO61au4L8NuhFbkqEIlgggaZXGV01ezOW2_YmWyTzMDcVrvh2ZnqmlLUlc_waItY\",\"attestationStatementFormat\":\"none\",\"transports\":[]}"
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
@@ -605,15 +536,15 @@
     "clientId" : "fido2",
     "name" : "",
     "description" : "",
-    "rootUrl" : "http://172.19.117.164:8080/",
+    "rootUrl" : "http://localhost:8080/",
     "adminUrl" : "",
     "baseUrl" : "",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : true,
     "clientAuthenticatorType" : "client-secret",
-    "redirectUris" : [ "http://172.19.117.164:8080/*" ],
-    "webOrigins" : [ "http://172.19.117.164:8080/" ],
+    "redirectUris" : [ "http://localhost:8080/*", "http://localhost:5173/*" ],
+    "webOrigins" : [ "", "+" ],
     "notBefore" : 0,
     "bearerOnly" : false,
     "consentRequired" : false,
@@ -1182,8 +1113,8 @@
     "xContentTypeOptions" : "nosniff",
     "referrerPolicy" : "no-referrer",
     "xRobotsTag" : "none",
-    "xFrameOptions" : "SAMEORIGIN",
-    "contentSecurityPolicy" : "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
+    "xFrameOptions" : "",
+    "contentSecurityPolicy" : "",
     "xXSSProtection" : "1; mode=block",
     "strictTransportSecurity" : "max-age=31536000; includeSubDomains"
   },
@@ -1233,7 +1164,7 @@
       "subType" : "authenticated",
       "subComponents" : { },
       "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-sha256-pairwise-sub-mapper", "oidc-full-name-mapper", "saml-user-attribute-mapper", "oidc-address-mapper", "oidc-usermodel-attribute-mapper", "saml-role-list-mapper", "oidc-usermodel-property-mapper", "saml-user-property-mapper" ]
+        "allowed-protocol-mapper-types" : [ "oidc-address-mapper", "oidc-full-name-mapper", "saml-user-attribute-mapper", "saml-user-property-mapper", "oidc-usermodel-property-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-role-list-mapper", "oidc-usermodel-attribute-mapper" ]
       }
     }, {
       "id" : "0fc013e4-ca9c-4e7d-b743-1571fafdab02",
@@ -1267,7 +1198,7 @@
       "subType" : "anonymous",
       "subComponents" : { },
       "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-usermodel-property-mapper", "oidc-address-mapper", "saml-user-property-mapper", "oidc-sha256-pairwise-sub-mapper", "oidc-usermodel-attribute-mapper", "oidc-full-name-mapper", "saml-role-list-mapper", "saml-user-attribute-mapper" ]
+        "allowed-protocol-mapper-types" : [ "oidc-usermodel-property-mapper", "saml-user-property-mapper", "saml-role-list-mapper", "oidc-usermodel-attribute-mapper", "oidc-sha256-pairwise-sub-mapper", "oidc-address-mapper", "saml-user-attribute-mapper", "oidc-full-name-mapper" ]
       }
     } ],
     "org.keycloak.keys.KeyProvider" : [ {
@@ -1946,7 +1877,7 @@
     "cibaInterval" : "5",
     "realmReusableOtpCode" : "false"
   },
-  "keycloakVersion" : "22.0.1",
+  "keycloakVersion" : "22.0.3",
   "userManagedAccessAllowed" : false,
   "clientProfiles" : {
     "profiles" : [ ]
