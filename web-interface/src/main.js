@@ -20,5 +20,5 @@ const renderApp = () => {
   app.use(router);
   app.mount('#app');
 }
-keycloakService.CallInit(renderApp);
-// renderApp();
+// keycloakService.CallInit(renderApp);
+renderApp();

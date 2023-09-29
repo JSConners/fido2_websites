@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import keycloakService from '@/services/keycloak';
+import KeycloakService from '@/services/keycloak';
 
 export const useAuthStore = defineStore({
   id: "storeAuth",
@@ -14,23 +14,18 @@ export const useAuthStore = defineStore({
   getters: {},
   actions: {
       // Initialize Keycloak OAuth
-      async initOauth(keycloak, clearData = true) {
+      async initOauth(Keycloak, clearData = true) {
         if(clearData) { await this.clearUserData(); }
 
-        this.authenticated = false;
-      },
-      async loginOauth(keycloak, clearData = true) {
-        if(clearData) { await this.clearUserData(); }
-  
-        this.authenticated = keycloak.authenticated;
-        this.user.username = keycloak.idTokenParsed.preferred_username;
-        this.user.token = keycloak.token;
-        this.user.refToken = keycloak.refreshToken;
+        this.authenticated = Keycloak.authenticated;
+        // this.user.username = Keycloak.idTokenParsed.preferred_username;
+        this.user.token = Keycloak.token;
+        this.user.refToken = Keycloak.refreshToken;
       },
       // Logout user
       async logout() {
         try {
-          await keycloakService.CallLogout(import.meta.env.VITE_APP_URL);
+          await KeycloakService.CallLogout(import.meta.env.VITE_APP_URL);
           await this.clearUserData();
         } catch (error) {
           console.error(error);
@@ -39,8 +34,8 @@ export const useAuthStore = defineStore({
       // Refresh user's token
       async refreshUserToken() {
         try {
-          const keycloak = await keycloakService.CallTokenRefresh();
-          this.initOauth(keycloak, false);
+          const Keycloak = await KeycloakService.CallTokenRefresh();
+          this.initOauth(Keycloak, false);
         } catch (error) {
           console.error(error);
         }

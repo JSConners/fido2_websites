@@ -11,26 +11,16 @@ let authenticated;
 let store = null;
 
 /**
- * Initializes Keycloak, then run callback. This will prompt you to login.
+ * Initializes Keycloak, then run callback.
  *
  * @param onAuthenticatedCallback
  */
-async function init(onInitCallback) {
+async function init() {
   try {
-    authenticated = await keycloak.init({ checkLoginIframe: true })
-    onInitCallback()
+    authenticated = await keycloak.init({ onload: 'login-required', checkLoginIframe:false })
+    // onInitCallback()
   } catch (error) {
     console.error("Keycloak init failed")
-    console.error(error)
-  }
-};
-
-async function login(onLoginCallback) {
-  try {
-    authenticated = await keycloak.login()
-    onLoginCallback()
-  } catch (error) {
-    console.error("Keycloak login failed")
     console.error(error)
   }
 };
@@ -52,18 +42,6 @@ async function initStore(storeInstance) {
   }
 };
 
-async function loginStore(storeInstance) {
-  try {
-    store = storeInstance
-    store.loginOauth(keycloak)
-
-    // Show alert if user is not authenticated
-    // if (!authenticated) { alert("not authenticated") }
-  } catch (error) {
-    console.error("Keycloak init failed")
-    console.error(error)
-  }
-};
 
 /**
  * Logout user
@@ -88,10 +66,8 @@ async function refreshToken() {
 const KeycloakService = {
   CallInit: init,
   CallInitStore: initStore,
-  CallLoginStore: loginStore,
-  CallLogin: login,
   CallLogout: logout,
   CallTokenRefresh: refreshToken
-};
+}
 
 export default KeycloakService;
