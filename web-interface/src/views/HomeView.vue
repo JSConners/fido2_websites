@@ -1,9 +1,16 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import keycloakService from '@/services/keycloak';
+// import { useAuthStore } from "@/stores/authStore";
+
+// const store = useAuthStore()
+// console.log(store.user.username)
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <h2>Stuff</h2>
+    <button @click="keycloakService.CallInit()">Login</button>
+    
   </main>
 </template>
