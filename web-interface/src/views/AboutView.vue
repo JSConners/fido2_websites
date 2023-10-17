@@ -1,13 +1,17 @@
 <script >
-// import keycloakService from '@/services/keycloak';
+import keycloakService from '@/services/keycloak';
 import { useAuthStore } from "@/stores/authStore";
 
 
 const store = useAuthStore()
 console.log("checking: ", store.authenticated)
 
-</script>
+keycloakService.CallTokenCheck()
 
+</script>
+<style>
+  div {text-align: center;}
+</style>
 <template >
   <div class="about">
     <h1>This is an about page</h1>

@@ -7,23 +7,23 @@ export const useAuthStore = defineStore({
     return {
       authenticated: false,
       user: {},
-      test: false
     }
   },
   persist: true,
   getters: {},
   actions: {
-    testAction() {
-        this.test = !this.test;
-      },
       // Initialize Keycloak OAuth
       async initOauth(keycloak, clearData = true) {
         if(clearData) { await this.clearUserData(); }
   
         this.authenticated = keycloak.authenticated;
-        this.user.username = keycloak.idTokenParsed.preferred_username;
         this.user.token = keycloak.token;
         this.user.refToken = keycloak.refreshToken;
+        if (!keycloak.idTokenParsed){
+          this.user.username = false
+        }else{
+          this.user.username = keycloak.idTokenParsed.preferred_username;
+        }
       },
       // Logout user
       async logout() {
@@ -43,6 +43,7 @@ export const useAuthStore = defineStore({
           console.error(error);
         }
       },
+
       // Clear user's store data
       clearUserData() {
         this.authenticated = false;

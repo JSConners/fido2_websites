@@ -1,6 +1,10 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { useAuthStore } from "@/stores/authStore";
+import { setMapStoreSuffix } from 'pinia';
+
+const store = useAuthStore()
 </script>
 
 <template>
@@ -12,7 +16,11 @@ import HelloWorld from './components/HelloWorld.vue'
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <!-- <RouterLink v-if="!store.authenticated" to="/landingpage">Login</RouterLink> -->
+        <RouterLink v-if="store.authenticated" to="/landingpage">Landing</RouterLink>
+        <RouterLink v-if="store.authenticated" to="/homepage">Your Homepage</RouterLink>
+        <RouterLink v-if="store.authenticated" to="/about">About</RouterLink>
+        
       </nav>
     </div>
   </header>

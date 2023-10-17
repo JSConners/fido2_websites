@@ -15,19 +15,9 @@ let store = null;
  *
  * @param onAuthenticatedCallback
  */
-// async function init() {
-//   try {
-//     authenticated = await keycloak.init({ onLoad: 'check-sso' })
-//     console.log(authenticated)
-//   } catch (error) {
-//     console.error("Keycloak init failed")
-//     console.error(error)
-//   }
-// };
 async function init(onInitCallback) {
   try {
-    authenticated = await keycloak.init({ onLoad: 'check-sso' })
-    console.log(authenticated)
+    authenticated = await keycloak.init({   onload: "check-sso"   })
     onInitCallback()
   } catch (error) {
     console.error("Keycloak init failed")
@@ -42,6 +32,7 @@ async function initStore(storeInstance) {
   try {
     store = storeInstance
     store.initOauth(keycloak)
+    store.checkAuth()
   } catch (error) {
     console.error("Keycloak init failed")
     console.error(error)
@@ -68,14 +59,32 @@ async function refreshToken() {
     console.error(error);
   }
 }
-
-async function login(){
-  initStore(store);
-  try {
+async function checkToken(){
+  try{
+  if (keycloak.isTokenExpired()){
+    store.logout()
+  }else{
+    store.refreshUserToken()
+    return true;
+  }
+  } catch(e){
+    console.log(e)
+  }
+}
+async function login(){  try {
     await keycloak.login();
     console.log(authenticated);
   }catch (error) {
     console.error('Failed to refresh token');
+    console.error(error);
+  }
+}
+
+async function register(){
+  try{
+    await keycloak.register(); 
+  }catch (error){
+    console.error('Failed to complete registration'); 
     console.error(error);
   }
 }
@@ -85,7 +94,9 @@ const KeycloakService = {
   CallInitStore: initStore,
   CallLogout: logout,
   CallTokenRefresh: refreshToken, 
-  CallLogin: login
+  CallLogin: login,  
+  CallRegister: register,
+  CallTokenCheck: checkToken
 };
 
 export default KeycloakService;

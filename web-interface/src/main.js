@@ -15,8 +15,8 @@ pinia.use(piniaPluginPersistedstate);
 
 const renderApp = () => {
   const app = createApp(App);
-  app.use(AuthStorePlugin, { pinia });
   app.use(pinia);
+  app.use(AuthStorePlugin, { pinia });
   app.use(router);
   app.mount('#app');
 }
