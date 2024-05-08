@@ -4,15 +4,21 @@
 
 This should build and then run the service. 
 
+```sh
+sudo docker compose build && docker compose up
 ```
-sudo docker compose build && docker compose run
+
+Some linux distros use a separate docker compose package, so the command may look like this: 
+```sh
+sudo docker-compose build && docker-compose up
 ```
 
 After the first time running this command, you should only need to run to start the server. 
 
+```sh
+sudo docker compose up #docker-compose up
 ```
-sudo docker compose run
-```
+
 
 Web interface: `localhost:8080`
 Keycloak: `localhost:8180`
